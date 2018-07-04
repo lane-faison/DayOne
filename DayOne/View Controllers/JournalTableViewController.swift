@@ -9,10 +9,14 @@
 import UIKit
 
 class JournalTableViewController: UITableViewController {
-
+    
+    @IBOutlet weak var cameraButton: UIButton!
+    @IBOutlet weak var addButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupButtons()
     }
 
 
@@ -33,5 +37,27 @@ class JournalTableViewController: UITableViewController {
         // Configure the cell...
 
         return cell
+    }
+}
+
+extension JournalTableViewController {
+    private func setupButtons() {
+        cameraButton.imageView?.contentMode = .scaleAspectFit
+        cameraButton.addTarget(self, action: #selector(cameraButtonTapped), for: .touchUpInside)
+        
+        addButton.imageView?.contentMode = .scaleAspectFit
+        addButton.addTarget(self, action: #selector(cameraButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc private func cameraButtonTapped() {
+        performSegue(withIdentifier: "goToNew", sender: "camera")
+    }
+    
+    @objc private func addButtonTapped() {
+        performSegue(withIdentifier: "goToNew", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //
     }
 }

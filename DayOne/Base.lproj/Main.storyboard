@@ -87,9 +87,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="8SH-xA-SZl">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="uld-v8-R5H">
+                                    <rect key="frame" x="0.0" y="70" width="375" height="60"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WGx-zH-Wmc">
+                                            <rect key="frame" x="0.0" y="0.0" width="187.5" height="60"/>
+                                            <state key="normal" image="whiteCamera"/>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kNL-dz-p5J">
+                                            <rect key="frame" x="187.5" y="0.0" width="187.5" height="60"/>
+                                            <state key="normal" image="add"/>
+                                        </button>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" red="0.29803921568627451" green="0.75686274509803919" blue="0.9882352941176471" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="uld-v8-R5H" secondAttribute="trailing" id="7wC-9c-PUY"/>
+                                <constraint firstAttribute="bottom" secondItem="uld-v8-R5H" secondAttribute="bottom" constant="70" id="H6E-DU-1E0"/>
+                                <constraint firstItem="uld-v8-R5H" firstAttribute="top" secondItem="8SH-xA-SZl" secondAttribute="top" constant="70" id="MaD-ba-Shh"/>
+                                <constraint firstItem="uld-v8-R5H" firstAttribute="leading" secondItem="8SH-xA-SZl" secondAttribute="leading" id="n9o-Ed-yhm"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="e8X-R9-ayK">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="228" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="e8X-R9-ayK" id="FLh-s4-1fD">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -103,10 +129,15 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Item" id="pww-O0-TnX"/>
+                    <connections>
+                        <outlet property="addButton" destination="kNL-dz-p5J" id="JwI-bm-Kdu"/>
+                        <outlet property="cameraButton" destination="WGx-zH-Wmc" id="gqs-96-DeX"/>
+                        <segue destination="MCP-yn-GdX" kind="presentation" identifier="goToNew" id="qDY-gz-2MH"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Pq-n3-bgx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1702" y="-621"/>
+            <point key="canvasLocation" x="1701.5999999999999" y="-621.13943028485767"/>
         </scene>
         <!--Create Journal View Controller-->
         <scene sceneID="czb-hk-bOg">
@@ -153,4 +184,8 @@
             <point key="canvasLocation" x="-892" y="-289"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="add" width="256" height="256"/>
+        <image name="whiteCamera" width="256" height="256"/>
+    </resources>
 </document>
