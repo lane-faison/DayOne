@@ -213,7 +213,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oul-GR-A8n">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oul-GR-A8n">
                                 <rect key="frame" x="0.0" y="537" width="375" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="qVS-49-tgR"/>
@@ -223,7 +223,7 @@
                                     <action selector="setDateTapped:" destination="MCP-yn-GdX" eventType="touchUpInside" id="s13-4z-NtM"/>
                                 </connections>
                             </button>
-                            <datePicker contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="1HJ-4m-BvK">
+                            <datePicker hidden="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="1HJ-4m-BvK">
                                 <rect key="frame" x="0.0" y="64" width="375" height="473"/>
                                 <date key="date" timeIntervalSinceReferenceDate="552373209.88811195">
                                     <!--2018-07-04 05:00:09 +0000-->
@@ -263,6 +263,7 @@
                         <outlet property="navBar" destination="vg3-9f-Qq2" id="Zgx-8L-98E"/>
                         <outlet property="setDateButton" destination="oul-GR-A8n" id="1iM-8t-Ak6"/>
                         <outlet property="stackView" destination="AJd-tZ-6rb" id="eI5-VZ-X05"/>
+                        <outlet property="statusBarView" destination="kg5-Xu-kIH" id="5ih-Bf-oWS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rl8-8D-esR" userLabel="First Responder" sceneMemberID="firstResponder"/>
