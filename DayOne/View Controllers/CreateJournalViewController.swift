@@ -21,6 +21,12 @@ class CreateJournalViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: Notification.Name.UIKeyboardWillShow, object: nil)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navBar.topItem?.title = "July 6"
+    }
+    
     @IBAction func cancelTapped(_ sender: Any) {
     }
     
@@ -49,14 +55,16 @@ extension CreateJournalViewController {
     private func changeKeyboardHeight(notification: Notification) {
         if let keyboardFrame = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
             let keyHeight = keyboardFrame.cgRectValue.height
+            
+            bottomConstraint.constant = keyHeight + 10
         }
     }
     
-    @objc private func keyboardWillHide() {
-        
+    @objc private func keyboardWillHide(notification: Notification) {
+        changeKeyboardHeight(notification: notification)
     }
     
-    @objc private func keyboardWillShow() {
-        
+    @objc private func keyboardWillShow(notification: Notification) {
+        changeKeyboardHeight(notification: notification)
     }
 }
