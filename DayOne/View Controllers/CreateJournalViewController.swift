@@ -10,11 +10,12 @@ class CreateJournalViewController: UIViewController {
     @IBOutlet weak var setDateButton: UIButton!
     @IBOutlet weak var stackView: UIStackView!
     
-    let blueTheme = UIColor(red: 0.298, green: 0.757, blue: 0.988, alpha: 1.0) // #4CC1FC
+    private let blueTheme = UIColor(red: 0.298, green: 0.757, blue: 0.988, alpha: 1.0) // #4CC1FC
     
-    var date = Date()
-    var imagePicker = UIImagePickerController()
-    var images: [UIImage] = []
+    private var date = Date()
+    private var imagePicker = UIImagePickerController()
+    private var images: [UIImage] = []
+    var startWithCamera = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +34,17 @@ class CreateJournalViewController: UIViewController {
         updateDate()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if startWithCamera {
+            startWithCamera = !startWithCamera
+            cameraTapped("")
+        }
+    }
+    
     @IBAction func cancelTapped(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func saveTapped(_ sender: Any) {

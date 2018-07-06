@@ -46,7 +46,7 @@ extension JournalTableViewController {
         cameraButton.addTarget(self, action: #selector(cameraButtonTapped), for: .touchUpInside)
         
         addButton.imageView?.contentMode = .scaleAspectFit
-        addButton.addTarget(self, action: #selector(cameraButtonTapped), for: .touchUpInside)
+        addButton.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
     }
     
     @objc private func cameraButtonTapped() {
@@ -58,6 +58,13 @@ extension JournalTableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //
+        if segue.identifier == "goToNew" {
+            if let text = sender as? String {
+                if text == "camera" {
+                    let createVC = segue.destination as? CreateJournalViewController
+                    createVC?.startWithCamera = true
+                }
+            }
+        }
     }
 }
