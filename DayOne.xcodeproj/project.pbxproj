@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9ECA8DA48DC14439F8EC10AA /* Pods_DayOne.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5A989EE75D00D62890C4C48 /* Pods_DayOne.framework */; };
 		F6802F0E20E9EB3000BEC00C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6802F0D20E9EB3000BEC00C /* AppDelegate.swift */; };
 		F6802F1320E9EB3000BEC00C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6802F1120E9EB3000BEC00C /* Main.storyboard */; };
 		F6802F1520E9EB3400BEC00C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6802F1420E9EB3400BEC00C /* Assets.xcassets */; };
@@ -18,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		221EA04DDDB788E8FB7ABDBE /* Pods-DayOne.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DayOne.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DayOne/Pods-DayOne.debug.xcconfig"; sourceTree = "<group>"; };
+		A5A989EE75D00D62890C4C48 /* Pods_DayOne.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DayOne.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFB6B9A1B5FC81B4D8CE45BA /* Pods-DayOne.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DayOne.release.xcconfig"; path = "Pods/Target Support Files/Pods-DayOne/Pods-DayOne.release.xcconfig"; sourceTree = "<group>"; };
 		F6802F0A20E9EB3000BEC00C /* DayOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DayOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6802F0D20E9EB3000BEC00C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6802F1220E9EB3000BEC00C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -35,17 +39,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9ECA8DA48DC14439F8EC10AA /* Pods_DayOne.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B1E3EB41D79CA499810FAD9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A5A989EE75D00D62890C4C48 /* Pods_DayOne.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F033D0B39DF40727F3CEC51A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				221EA04DDDB788E8FB7ABDBE /* Pods-DayOne.debug.xcconfig */,
+				AFB6B9A1B5FC81B4D8CE45BA /* Pods-DayOne.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		F6802F0120E9EB3000BEC00C = {
 			isa = PBXGroup;
 			children = (
 				F6802F0C20E9EB3000BEC00C /* DayOne */,
 				F6802F0B20E9EB3000BEC00C /* Products */,
+				F033D0B39DF40727F3CEC51A /* Pods */,
+				2B1E3EB41D79CA499810FAD9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,9 +112,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F6802F1C20E9EB3400BEC00C /* Build configuration list for PBXNativeTarget "DayOne" */;
 			buildPhases = (
+				6C21035208D96BBB70CA5220 /* [CP] Check Pods Manifest.lock */,
 				F6802F0620E9EB3000BEC00C /* Sources */,
 				F6802F0720E9EB3000BEC00C /* Frameworks */,
 				F6802F0820E9EB3000BEC00C /* Resources */,
+				DF0F1C163F9965972E2C4757 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -146,6 +172,47 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6C21035208D96BBB70CA5220 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DayOne-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF0F1C163F9965972E2C4757 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-DayOne/Pods-DayOne-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DayOne/Pods-DayOne-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F6802F0620E9EB3000BEC00C /* Sources */ = {
@@ -298,6 +365,7 @@
 		};
 		F6802F1D20E9EB3400BEC00C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 221EA04DDDB788E8FB7ABDBE /* Pods-DayOne.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -316,6 +384,7 @@
 		};
 		F6802F1E20E9EB3400BEC00C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AFB6B9A1B5FC81B4D8CE45BA /* Pods-DayOne.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
