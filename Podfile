@@ -8,5 +8,6 @@ target 'DayOne' do
   # Pods for DayOne
 
 pod 'RealmSwift', '~> 3.4.0'
+pod 'Toucan', '~> 1.0.0'
 
 end

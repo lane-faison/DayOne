@@ -16,6 +16,7 @@
 		F6802F2320E9EE7A00BEC00C /* JournalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6802F2220E9EE7A00BEC00C /* JournalTableViewController.swift */; };
 		F6802F2520E9EECE00BEC00C /* CreateJournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6802F2420E9EECE00BEC00C /* CreateJournalViewController.swift */; };
 		F6802F2720E9EEFB00BEC00C /* PhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6802F2620E9EEFB00BEC00C /* PhotoCollectionViewController.swift */; };
+		F6EEEAEC20F199C100BD1C77 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EEEAEB20F199C100BD1C77 /* Models.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		F6802F2220E9EE7A00BEC00C /* JournalTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalTableViewController.swift; sourceTree = "<group>"; };
 		F6802F2420E9EECE00BEC00C /* CreateJournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateJournalViewController.swift; sourceTree = "<group>"; };
 		F6802F2620E9EEFB00BEC00C /* PhotoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewController.swift; sourceTree = "<group>"; };
+		F6EEEAEB20F199C100BD1C77 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				F6802F1F20E9EE2C00BEC00C /* View Controllers */,
+				F6EEEAEB20F199C100BD1C77 /* Models.swift */,
 				F6802F0D20E9EB3000BEC00C /* AppDelegate.swift */,
 				F6802F1120E9EB3000BEC00C /* Main.storyboard */,
 				F6802F1420E9EB3400BEC00C /* Assets.xcassets */,
@@ -201,11 +204,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-DayOne/Pods-DayOne-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Toucan/Toucan.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toucan.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -222,6 +227,7 @@
 				F6802F2720E9EEFB00BEC00C /* PhotoCollectionViewController.swift in Sources */,
 				F6802F0E20E9EB3000BEC00C /* AppDelegate.swift in Sources */,
 				F6802F2320E9EE7A00BEC00C /* JournalTableViewController.swift in Sources */,
+				F6EEEAEC20F199C100BD1C77 /* Models.swift in Sources */,
 				F6802F2520E9EECE00BEC00C /* CreateJournalViewController.swift in Sources */,
 				F6802F2120E9EE4800BEC00C /* JournalDetailViewController.swift in Sources */,
 			);

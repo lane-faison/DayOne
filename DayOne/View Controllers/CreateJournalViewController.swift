@@ -1,4 +1,5 @@
 import UIKit
+import RealmSwift
 
 class CreateJournalViewController: UIViewController {
     
@@ -48,6 +49,15 @@ class CreateJournalViewController: UIViewController {
     }
     
     @IBAction func saveTapped(_ sender: Any) {
+        if let realm = try? Realm() {
+            let entry = Entry()
+            entry.text = journalTextView.text
+            entry.date = date
+            
+            for image in images {
+                let picture = Picture()
+            }
+        }
     }
     
     @IBAction func setDateTapped(_ sender: Any) {
