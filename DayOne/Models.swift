@@ -24,8 +24,13 @@ class Picture: Object {
     convenience init(image: UIImage) {
         self.init()
         
+        // Creates full-size image name
         fullImageName = imageToUrlString(image: image)
-        Toucan(image: image)
+        
+        // Creates thumbnail-size image name
+        if let smallImage = Toucan(image: image).resize(CGSize(width: 500, height: 500), fitMode: .crop).image {
+            thumbnailName = imageToUrlString(image: smallImage)
+        }
     }
     
     func imageToUrlString(image: UIImage) -> String {
