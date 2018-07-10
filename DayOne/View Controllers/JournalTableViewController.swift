@@ -11,44 +11,78 @@ import RealmSwift
 
 class JournalTableViewController: UITableViewController {
     
+    @IBOutlet weak var topButtonContainer: UIView!
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
+    
+    var entries: Results<Entry>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupView()
         setupButtons()
-        
-        if let realm = try? Realm() {
-            let entries = realm.objects(Entry.self)
-            print(entries[0].text)
-            print(entries[0].date)
-            print(entries[0].pictures.count)
-        }
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        getEntries()
+    }
 
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
-    }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let entries = entries {
+            return entries.count
+        }
         return 0
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "journalCell", for: indexPath) as? JournalCell {
+            if let entry = entries?[indexPath.row] {
+                cell.previewTextLabel.text = entry.text
+                if let image = entry.pictures.first?.thumbnailImage() {
+                    cell.previewImageWidth.constant = 100
+                    cell.previewImageView.image = image
+                } else {
+                    cell.previewImageWidth.constant = 0
+                }
+                
+                cell.dayLabel.text = entry.formattedDayString()
+                cell.monthLabel.text = entry.formattedMonthString()
+                cell.yearLabel.text = entry.formattedYearString()
+            }
+            return cell
+        }
 
-        // Configure the cell...
-
-        return cell
+        return UITableViewCell()
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
+    private func getEntries() {
+        if let realm = try? Realm() {
+            entries = realm.objects(Entry.self).sorted(byKeyPath: "date", ascending: false)
+            tableView.reloadData()
+        }
     }
 }
 
 extension JournalTableViewController {
+    
+    private func setupView() {
+        navigationController?.navigationBar.barTintColor = blueTheme
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        topButtonContainer.backgroundColor = blueTheme
+    }
+    
     private func setupButtons() {
         cameraButton.imageView?.contentMode = .scaleAspectFit
         cameraButton.addTarget(self, action: #selector(cameraButtonTapped), for: .touchUpInside)

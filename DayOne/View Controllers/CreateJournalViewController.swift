@@ -1,6 +1,8 @@
 import UIKit
 import RealmSwift
 
+public let blueTheme = UIColor(red: 0.298, green: 0.757, blue: 0.988, alpha: 1.0) // #4CC1FC
+
 class CreateJournalViewController: UIViewController {
     
     @IBOutlet weak var statusBarView: UIView!
@@ -11,12 +13,10 @@ class CreateJournalViewController: UIViewController {
     @IBOutlet weak var setDateButton: UIButton!
     @IBOutlet weak var stackView: UIStackView!
     
-    private let blueTheme = UIColor(red: 0.298, green: 0.757, blue: 0.988, alpha: 1.0) // #4CC1FC
-    
-    private var date = Date()
     private var imagePicker = UIImagePickerController()
     private var images: [UIImage] = []
     var startWithCamera = false
+    var entry = Entry()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,9 +50,7 @@ class CreateJournalViewController: UIViewController {
     
     @IBAction func saveTapped(_ sender: Any) {
         if let realm = try? Realm() {
-            let entry = Entry()
             entry.text = journalTextView.text
-            entry.date = date
             
             for image in images {
                 let picture = Picture(image: image)
@@ -72,7 +70,7 @@ class CreateJournalViewController: UIViewController {
         journalTextView.isHidden = false
         datePicker.isHidden = true
         setDateButton.isHidden = true
-        date = datePicker.date
+        entry.date = datePicker.date
         updateDate()
     }
     
@@ -80,7 +78,7 @@ class CreateJournalViewController: UIViewController {
         journalTextView.isHidden = true
         datePicker.isHidden = false
         setDateButton.isHidden = false
-        datePicker.date = date
+        datePicker.date = entry.date
     }
     
     @IBAction func cameraTapped(_ sender: Any) {
@@ -99,9 +97,7 @@ extension CreateJournalViewController {
     }
     
     private func updateDate() {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "E, MMM, d, yyyy"
-        navBar.topItem?.title = dateFormatter.string(from: date)
+        navBar.topItem?.title = entry.formattedDateString()
     }
     
     private func changeKeyboardHeight(notification: Notification) {
