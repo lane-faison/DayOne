@@ -10,6 +10,7 @@
 		9ECA8DA48DC14439F8EC10AA /* Pods_DayOne.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5A989EE75D00D62890C4C48 /* Pods_DayOne.framework */; };
 		F61739FB20F2E7B7009B14C2 /* JournalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61739FA20F2E7B7009B14C2 /* JournalCell.swift */; };
 		F61739FD20F47D8E009B14C2 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61739FC20F47D8E009B14C2 /* SplitViewController.swift */; };
+		F61739FF20FC51CA009B14C2 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61739FE20FC51CA009B14C2 /* PhotoCell.swift */; };
 		F6802F0E20E9EB3000BEC00C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6802F0D20E9EB3000BEC00C /* AppDelegate.swift */; };
 		F6802F1320E9EB3000BEC00C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6802F1120E9EB3000BEC00C /* Main.storyboard */; };
 		F6802F1520E9EB3400BEC00C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6802F1420E9EB3400BEC00C /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 		AFB6B9A1B5FC81B4D8CE45BA /* Pods-DayOne.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DayOne.release.xcconfig"; path = "Pods/Target Support Files/Pods-DayOne/Pods-DayOne.release.xcconfig"; sourceTree = "<group>"; };
 		F61739FA20F2E7B7009B14C2 /* JournalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalCell.swift; sourceTree = "<group>"; };
 		F61739FC20F47D8E009B14C2 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
+		F61739FE20FC51CA009B14C2 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		F6802F0A20E9EB3000BEC00C /* DayOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DayOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6802F0D20E9EB3000BEC00C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6802F1220E9EB3000BEC00C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -108,8 +110,9 @@
 				F6802F2220E9EE7A00BEC00C /* JournalTableViewController.swift */,
 				F6802F2420E9EECE00BEC00C /* CreateJournalViewController.swift */,
 				F6802F2620E9EEFB00BEC00C /* PhotoCollectionViewController.swift */,
-				F61739FA20F2E7B7009B14C2 /* JournalCell.swift */,
 				F61739FC20F47D8E009B14C2 /* SplitViewController.swift */,
+				F61739FA20F2E7B7009B14C2 /* JournalCell.swift */,
+				F61739FE20FC51CA009B14C2 /* PhotoCell.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6802F2720E9EEFB00BEC00C /* PhotoCollectionViewController.swift in Sources */,
+				F61739FF20FC51CA009B14C2 /* PhotoCell.swift in Sources */,
 				F6802F0E20E9EB3000BEC00C /* AppDelegate.swift in Sources */,
 				F6802F2320E9EE7A00BEC00C /* JournalTableViewController.swift in Sources */,
 				F6EEEAEC20F199C100BD1C77 /* Models.swift in Sources */,

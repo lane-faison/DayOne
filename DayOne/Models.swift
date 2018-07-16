@@ -38,6 +38,12 @@ class Entry: Object {
         dateFormatter.dateFormat = "yyyy"
         return dateFormatter.string(from: date)
     }
+    
+    func formattedMonthYearString() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM yyyy"
+        return dateFormatter.string(from: date)
+    }
 }
 
 class Picture: Object {

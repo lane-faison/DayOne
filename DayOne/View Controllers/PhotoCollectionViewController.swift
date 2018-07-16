@@ -1,46 +1,58 @@
-//
-//  PhotoCollectionViewController.swift
-//  DayOne
-//
-//  Created by Lane Faison on 7/1/18.
-//  Copyright © 2018 Lane Faison. All rights reserved.
-//
-
 import UIKit
+import RealmSwift
 
 private let reuseIdentifier = "Cell"
 
 class PhotoCollectionViewController: UICollectionViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+    
+    var pictures: Results<Picture>?
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        getPictures()
     }
+}
 
-    // MARK: UICollectionViewDataSource
+extension PhotoCollectionViewController {
+    private func getPictures() {
+        if let realm = try? Realm() {
+            pictures = realm.objects(Picture.self)
+            collectionView?.reloadData()
+        }
+    }
+}
 
+extension PhotoCollectionViewController {
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
-
-
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
+        if let pictures = self.pictures {
+            return pictures.count
+        }
         return 0
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    
-        // Configure the cell
-    
-        return cell
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as? PhotoCell {
+            if let picture = pictures?[indexPath.row] {
+                cell.imageView.image = picture.thumbnailImage()
+                cell.dayLabel.text = picture.entry?.formattedDayString()
+                cell.monthLabel.text = picture.entry?.formattedMonthYearString()
+            }
+            
+            
+            return cell
+        } else {
+            return UICollectionViewCell()
+        }
     }
+}
 
+extension PhotoCollectionViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.size.width / 2, height: collectionView.frame.size.width / 2)
+    }
 }
