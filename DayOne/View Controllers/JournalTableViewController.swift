@@ -65,6 +65,12 @@ class JournalTableViewController: UITableViewController {
         return 100
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let entry = entries?[indexPath.row] {
+            performSegue(withIdentifier: "tableToDetail", sender: entry)
+        }
+    }
+    
     private func getEntries() {
         if let realm = try? Realm() {
             entries = realm.objects(Entry.self).sorted(byKeyPath: "date", ascending: false)
@@ -106,6 +112,11 @@ extension JournalTableViewController {
                     let createVC = segue.destination as? CreateJournalViewController
                     createVC?.startWithCamera = true
                 }
+            }
+        } else if segue.identifier == "tableToDetail" {
+            if let entry = sender as? Entry {
+                let detailVC = segue.destination as? JournalDetailViewController
+                detailVC?.entry = entry
             }
         }
     }

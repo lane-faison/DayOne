@@ -17,9 +17,45 @@
                     <view key="view" contentMode="scaleToFill" id="oIt-qR-zD1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="exJ-Tn-fYf">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="02q-kS-d2Y">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="203"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4UK-Yr-qK0">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="203"/>
+                                                <string key="text">LabelLabelLabelLabelLabelLabelLabelLabe lLabelLabelLabelLab elLabelLabel Label Label LabelLabelLabelLabel LabelLabel Label Label Label LabelLabel LabelLabelLabelLabelLabelLabelLabelLabe lLabelLabelLabelLab elLabelLabel Label Label LabelLabelLabelLabel LabelLabel Label Label Label LabelLabel LabelLabelLabelLabelLabelLabelLabelLabe lLabelLabelLabelLab elLabelLabel Label Label </string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="02q-kS-d2Y" secondAttribute="bottom" id="5NC-dW-re8"/>
+                                    <constraint firstItem="02q-kS-d2Y" firstAttribute="width" secondItem="exJ-Tn-fYf" secondAttribute="width" id="Jt8-b1-EvX"/>
+                                    <constraint firstAttribute="trailing" secondItem="02q-kS-d2Y" secondAttribute="trailing" id="OES-rn-z9J"/>
+                                    <constraint firstItem="02q-kS-d2Y" firstAttribute="leading" secondItem="exJ-Tn-fYf" secondAttribute="leading" id="per-xD-6uw"/>
+                                    <constraint firstItem="02q-kS-d2Y" firstAttribute="top" secondItem="exJ-Tn-fYf" secondAttribute="top" id="sZi-fQ-6ug"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="exJ-Tn-fYf" firstAttribute="top" secondItem="pFz-2z-l5u" secondAttribute="top" id="BrZ-Js-NIW"/>
+                            <constraint firstItem="pFz-2z-l5u" firstAttribute="trailing" secondItem="exJ-Tn-fYf" secondAttribute="trailing" id="K47-cb-Yty"/>
+                            <constraint firstItem="exJ-Tn-fYf" firstAttribute="leading" secondItem="pFz-2z-l5u" secondAttribute="leading" id="dPP-4P-ONn"/>
+                            <constraint firstItem="pFz-2z-l5u" firstAttribute="bottom" secondItem="exJ-Tn-fYf" secondAttribute="bottom" id="nMu-w9-sbd"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="pFz-2z-l5u"/>
                     </view>
+                    <connections>
+                        <outlet property="journalTextLabel" destination="4UK-Yr-qK0" id="2x8-td-dtN"/>
+                        <outlet property="stackView" destination="02q-kS-d2Y" id="KPh-DW-MMO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hbP-ry-9RU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -97,16 +133,21 @@
                         </connections>
                     </collectionView>
                     <tabBarItem key="tabBarItem" title="Item" id="LGY-oK-7al"/>
+                    <connections>
+                        <segue destination="IMP-8Y-bU4" kind="showDetail" identifier="photoToDetail" id="MBM-zh-0Kq"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wPQ-KL-PQX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="885.60000000000002" y="134.48275862068968"/>
+            <point key="canvasLocation" x="886" y="135"/>
         </scene>
         <!--Day One Clone-->
         <scene sceneID="yAa-GN-dDs">
             <objects>
                 <tabBarController id="eT4-M3-zEN" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" title="Day One Clone" id="4QZ-pl-THW"/>
+                    <navigationItem key="navigationItem" title="Day One Clone" id="4QZ-pl-THW">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="AJX-dY-al2"/>
+                    </navigationItem>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="EQU-vg-8CY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -244,6 +285,7 @@
                         <outlet property="cameraButton" destination="WGx-zH-Wmc" id="gqs-96-DeX"/>
                         <outlet property="topButtonContainer" destination="8SH-xA-SZl" id="oZV-Ex-0ka"/>
                         <segue destination="MCP-yn-GdX" kind="presentation" identifier="goToNew" id="qDY-gz-2MH"/>
+                        <segue destination="IMP-8Y-bU4" kind="showDetail" identifier="tableToDetail" id="U0K-Lf-SkX"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Pq-n3-bgx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -420,4 +462,7 @@
         <image name="calendar" width="256" height="256"/>
         <image name="whiteCamera" width="256" height="256"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="MBM-zh-0Kq"/>
+    </inferredMetricsTieBreakers>
 </document>
