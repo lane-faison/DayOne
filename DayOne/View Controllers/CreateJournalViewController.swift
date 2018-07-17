@@ -1,5 +1,6 @@
 import UIKit
 import RealmSwift
+import Spring
 
 public let blueTheme = UIColor(red: 0.298, green: 0.757, blue: 0.988, alpha: 1.0) // #4CC1FC
 
@@ -122,7 +123,7 @@ extension CreateJournalViewController: UIImagePickerControllerDelegate, UINaviga
         if let chosenImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             images.append(chosenImage)
             // Animation
-            let imageView = UIImageView()
+            let imageView = SpringImageView()
             
             NSLayoutConstraint.activate([
                 imageView.heightAnchor.constraint(equalToConstant: 70.0),
@@ -134,7 +135,9 @@ extension CreateJournalViewController: UIImagePickerControllerDelegate, UINaviga
             imageView.clipsToBounds = true
             stackView.addArrangedSubview(imageView)
             imagePicker.dismiss(animated: true) {
-                // Animation
+                imageView.animation = "pop"
+                imageView.duration = 2.0
+                imageView.animate()
             }
         }
     }
